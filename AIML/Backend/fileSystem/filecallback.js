@@ -9,4 +9,6 @@ fs.readFile("./data.txt","utf-8",(error,data) =>{
     }
 });
 }
-module.exports = read();
+module.exports = read;
+    read();
+    // console.log("Complete my work first");
