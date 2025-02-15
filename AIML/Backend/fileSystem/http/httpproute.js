@@ -1,11 +1,10 @@
 const http = require('http');
-const fs = require('fs/promises');
+const fspromises = require('fs/promises');
 
 const server= http.createServer(async(req,res)=>{
     res.setHeader('content-Type','text/html');
-    if(req.method == 'GET' && req.url =='/') {
-        const a = await fspromises.readFile("aa.json");
-        res.end(a)
+    if(req.method == 'GET' && req.url =='/about') {
+       res.end("<h1>Hello World!</h1>");
     }
     else if(req.url == '/error'){
         const a = await fspromises.readFile("./home.html");
@@ -17,7 +16,7 @@ const server= http.createServer(async(req,res)=>{
     }
     // res.end(JSON.stringify(users));
 });
-port = 3001
-server.listen(3001,()=>{
+port = 3003
+server.listen(3003,()=>{
     console.log(`Server is running on ${port}`);
 });
