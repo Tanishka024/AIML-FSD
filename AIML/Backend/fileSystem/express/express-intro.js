@@ -2,18 +2,29 @@
 import express from 'express';
 const app = express();
 const port = 3000;
-app.get('/',(req,res)=>{
+// app.get('/',(req,res)=>{
+//     res.send("<h1>Welcome to Express</h1>");
+// });
+app.use(express.json());
+
+app.post('/',(req,res)=>{
     res.send("<h1>Welcome to Express</h1>");
 });
 
-app.get('/api/:name/:rollno',(req,res)=>{
-    try{
-const { name, rollno} = req.params;
-res.send(`Welcome ${name} and your roll no. is: ${rollno}`)
-    } catch(error){
-        console.log(`Error is: ${error.message}`);
-    }
+app.post('/users',(req,res)=>{
+    //const data = req.body;
+    const {name} = req.body;
+    res.send(`My name is ${name}`);
 });
+
+// app.get('/api/:name/:rollno',(req,res)=>{
+//     try{
+// const { name, rollno} = req.params;
+// res.send(`Welcome ${name} and your roll no. is: ${rollno}`)
+//     } catch(error){
+//         console.log(`Error is: ${error.message}`);
+//     }
+// });
 
 // http://localhost:3000/api/tanishka/174
 
